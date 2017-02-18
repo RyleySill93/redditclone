@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reddit</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <%= button_to "All Subs", subs_url, method: :get %>
+    <%= "#{current_user.username} is logged in" if current_user%>
+    <% if current_user.nil? %>
+      <%= button_to "Sign In", new_session_url, method: :get %>
+      <%= button_to "Sign Up", new_user_url, method: :get %>
+    <% else %>
+      <%= button_to "Sign Out", session_url, method: :delete %>
+    <% end  %>
+
+
+<ul>
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+    <%= yield %>
+  </body>
+</html>

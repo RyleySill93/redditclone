@@ -1,0 +1,16 @@
+<h1>Now Viewing: <u><%= @sub.title %></u></h1>
+
+<h3>Description</h3>
+<%= @sub.description %>
+
+<ul>
+<% @sub.posts.each do |post| %>
+  <li> <%= link_to post.title, post_url(post), method: :get %></li>
+<% end %>
+</ul>
+
+<br><br>
+<%= button_to "Add Post", new_sub_post_url(@sub), method: :get %>
+
+<br><br>
+<%= link_to "Edit This Sub", edit_sub_url(@sub), method: :get %>

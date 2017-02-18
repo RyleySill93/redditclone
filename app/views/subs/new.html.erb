@@ -1,0 +1,21 @@
+<h1>Create a Sub</h1>
+
+<form action="<%= subs_url %>" method="post">
+<%= auth_token %>
+
+<label>
+  Title
+  <br>
+  <input type="text" name="sub[title]">
+</label>
+
+<br>
+<label>
+  Description
+  <br>
+<textarea name="sub[description]" rows="8" cols="80"></textarea>
+</label>
+<br>
+
+<input type="submit">
+</form>
